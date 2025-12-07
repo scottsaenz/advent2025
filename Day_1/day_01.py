@@ -1,11 +1,12 @@
 import csv
 
+
 def inv_cov(row):
-    row = row.replace('L','-').replace('R','')
+    row = row.replace("L", "-").replace("R", "")
     return int(row)
 
 
-with open('Day_1/input.csv') as f:
+with open("Day_1/input.csv") as f:
     reader = csv.reader(f)
     data = list(reader)
     numbers = [inv_cov(row[0]) for row in data]

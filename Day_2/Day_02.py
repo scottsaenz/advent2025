@@ -1,11 +1,12 @@
 import csv
 
-with open('/Users/scottsaenz/Projects/Advent2025/Day_2/input.txt') as f:
-    reader = csv.reader(f,delimiter=',')
+with open("/Users/scottsaenz/Projects/Advent2025/Day_2/input.txt") as f:
+    reader = csv.reader(f, delimiter=",")
     data = list(reader)[0]
 
 # split each element into min max of a range
-ranges = [tuple(map(int, item.split('-'))) for item in data]
+ranges = [tuple(map(int, item.split("-"))) for item in data]
+
 
 # get products of the range of length for the min/max of each range
 def get_products(str_len):
@@ -17,11 +18,11 @@ def get_products(str_len):
             products.append(r)
     return products
 
+
 def generate_patterns(num_length):
-    """
-    
-    """
-    return range(10**(num_length - 1), 10**num_length)
+    """ """
+    return range(10 ** (num_length - 1), 10**num_length)
+
 
 # create set of invalid patterns within range
 def invalid_patterns(min_val, max_val):
@@ -43,9 +44,9 @@ def invalid_patterns(min_val, max_val):
                     num_pattern = int(full_pattern)
                     if num_pattern >= min_val and num_pattern <= max_val:
                         invalids.add(num_pattern)
-    
 
     return invalids
+
 
 final_invalids = set()
 
@@ -55,16 +56,15 @@ for r in ranges:
     final_invalids = final_invalids.union(invalids)
 
 
-
 final_invalids_list = list(final_invalids)
 final_invalids_list.sort()
 print(sum(final_invalids))
-print('done')
+print("done")
 
 
-# expected 1227775554 
+# expected 1227775554
 # got 1227774445
-# try number 2 
+# try number 2
 # 1227776664
 
 # too high 19058204438
